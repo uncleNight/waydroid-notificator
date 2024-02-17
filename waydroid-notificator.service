@@ -1,0 +1,14 @@
+[Unit]
+Description=Companion daemon to display notification from Android apps running in Waydroid container
+After=waydroid-container.service
+After=dbus.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/waydroid-notificator
+#Environment=DISPLAY=:0
+ExecStart=/opt/waydroid-notificator/run.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
